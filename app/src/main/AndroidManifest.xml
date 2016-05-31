@@ -17,8 +17,9 @@
         </activity>
         <activity android:name=".DashboardActivity" />
         <activity android:name=".UnitsActivity" />
-        <activity android:name=".SongsActivity" />
-        <activity android:name=".VocabularyActivity"></activity>
+        <activity android:name=".EnhancementRealityActivity" />
+        <activity android:name=".MediaActivity" />
+        <activity android:name=".MediaVideoActivity"></activity>
     </application>
 
 </manifest>

@@ -1,13 +1,12 @@
 package com.alvardev.android.abcplay;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class SongsActivity extends AppCompatActivity {
+public class EnhancementRealityActivity extends BaseAppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_songs);
+        setContentView(R.layout.activity_enhancement_reality);
     }
 }
