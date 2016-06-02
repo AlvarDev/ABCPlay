@@ -1,11 +1,13 @@
 package com.alvardev.android.abcplay;
 
 import android.Manifest;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.Toast;
@@ -19,7 +21,9 @@ public class EnhancementRealityActivity extends ARActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_CAMERA = 133;
     private FrameLayout mainLayout;
-    private SimpleRenderer simpleRenderer = new SimpleRenderer();
+    private String letter;
+
+    private SimpleRenderer simpleRenderer = new SimpleRenderer(EnhancementRealityActivity.this);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,7 @@ public class EnhancementRealityActivity extends ARActivity {
         setContentView(R.layout.activity_enhancement_reality);
 
         mainLayout = (FrameLayout)this.findViewById(R.id.mainLayout);
+        letter = getIntent().getStringExtra("letter");
 
         if (!checkCameraPermission()) {
             //if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) { //ASK EVERY TIME - it's essential!
@@ -39,8 +44,8 @@ public class EnhancementRealityActivity extends ARActivity {
         mainLayout.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                simpleRenderer.click();
-
+                Log.i("Render", "Letter: "+getPreference("letter"));
+                //simpleRenderer.click();
                 Vibrator vib = (Vibrator) getSystemService(VIBRATOR_SERVICE);
                 vib.vibrate(40);
             }
@@ -55,7 +60,7 @@ public class EnhancementRealityActivity extends ARActivity {
             Toast.makeText(this, "No hay permisos para usar la camara - reiniciar la app", Toast.LENGTH_LONG).show();
             return null;
         }
-        return new SimpleRenderer();
+        return new SimpleRenderer(EnhancementRealityActivity.this);
     }
 
     @Override
@@ -78,6 +83,11 @@ public class EnhancementRealityActivity extends ARActivity {
                     Toast.makeText(this, "Permisos denegados", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    public int getPreference(String key) {
+        SharedPreferences preferencias = this.getSharedPreferences("com.alvardev.android.abcplay", MODE_PRIVATE);
+        return preferencias.getInt(key, 0);
     }
 
 }

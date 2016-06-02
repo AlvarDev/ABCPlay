@@ -69,7 +69,7 @@ public class ARRenderer implements GLSurfaceView.Renderer {
 	}
 	
     public void onSurfaceCreated(GL10 unused, EGLConfig config) {        
-    	
+
     	// Transparent background
     	GLES10.glClearColor(0.0f, 0.0f, 0.0f, 0.f);
     }

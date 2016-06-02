@@ -81,6 +81,7 @@ public class UnitsActivity extends BaseAppCompatActivity {
     private void goToEnhancementReality(String mediaPath){
         Intent intent = new Intent(UnitsActivity.this, EnhancementRealityActivity.class);
         intent.putExtra("mediaPath", mediaPath);
+        intent.putExtra("letter","a");
         startActivity(intent);
     }
 

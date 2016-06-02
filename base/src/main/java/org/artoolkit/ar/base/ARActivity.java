@@ -61,6 +61,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.Window;
 import android.view.WindowManager;
@@ -96,8 +97,8 @@ public abstract class ARActivity extends Activity implements CameraEventListener
 	/**
 	 * GL surface to render the virtual objects	 
 	 */
-	private GLSurfaceView glView;	
-	
+	private GLSurfaceView glView;
+
 	/**
 	 *  Renderer to use. This is provided by the subclass using {@link supplyRenderer()}.
 	 */
@@ -216,10 +217,11 @@ public abstract class ARActivity extends Activity implements CameraEventListener
     	Log.i(TAG, "CaptureCameraPreview created"); 
     	
     	// Create the GL view
-    	glView = new GLSurfaceView(this);    		
+
+    	glView = new GLSurfaceView(this);
 		glView.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
 		glView.getHolder().setFormat(PixelFormat.TRANSLUCENT); // Needs to be a translucent surface so the camera preview shows through.
-		glView.setRenderer(renderer);		
+		glView.setRenderer(renderer);
 		glView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY); // Only render when we have a frame (must call requestRender()).
 		glView.setZOrderMediaOverlay(true); // Request that GL view's SurfaceView be on top of other SurfaceViews (including CameraPreview's SurfaceView).
 		
@@ -233,7 +235,7 @@ public abstract class ARActivity extends Activity implements CameraEventListener
 
 		if (glView != null) glView.onResume();
     }
-    
+
 	@Override
 	protected void onPause() {
     	//Log.i(TAG, "onPause()");
