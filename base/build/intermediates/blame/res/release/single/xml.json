@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/AlvarDev/Repos/ABCPlay/base/build/intermediates/res/merged/release/xml/preferences.xml",
+        "source": "/Users/AlvarDev/Repos/ABCPlay/base/src/main/res/xml/preferences.xml"
+    },
+    {
+        "merged": "/Users/AlvarDev/Repos/artoolkit-android-studio-example/base/build/intermediates/res/merged/release/xml/preferences.xml",
+        "source": "/Users/AlvarDev/Repos/artoolkit-android-studio-example/base/src/main/res/xml/preferences.xml"
+    }
+]
