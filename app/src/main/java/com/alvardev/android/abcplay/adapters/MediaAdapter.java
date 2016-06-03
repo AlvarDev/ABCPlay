@@ -45,9 +45,9 @@ public class MediaAdapter extends RecyclerView.Adapter<MediaAdapter.ViewHolder>
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Picasso.with(this.context).load(mData.get(position).getIco())
-                .placeholder(R.drawable.img_logo_main)
-                .error(R.drawable.img_logo_main)
+        Picasso.with(this.context).load(mData.get(position).getPath())
+                .placeholder(R.drawable.img_empty)
+                .error(R.drawable.img_empty)
                 .into(holder.ivIcoMedia);
     }
 

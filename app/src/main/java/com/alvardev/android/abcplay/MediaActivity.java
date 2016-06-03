@@ -9,7 +9,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -38,7 +37,6 @@ public class MediaActivity extends BaseAppCompatActivity {
     //@InjectView(R.id.progress_bar) View progressBar;
 
     private RealmResults<MediaEntity> media;
-    private MediaAdapter mAdapter;
     private int type;
 
     @Override
@@ -118,7 +116,7 @@ public class MediaActivity extends BaseAppCompatActivity {
                         new GridLayoutManager(this,2);
         rvMedia.setLayoutManager(mLayoutManager);
 
-        mAdapter = new MediaAdapter(media, MediaActivity.this);
+        MediaAdapter mAdapter = new MediaAdapter(media, MediaActivity.this);
         rvMedia.setAdapter(mAdapter);
         rvMedia.setItemAnimator(new DefaultItemAnimator());
         rvMedia.setVisibility(View.VISIBLE);
@@ -128,8 +126,14 @@ public class MediaActivity extends BaseAppCompatActivity {
 
                 int pos = rvMedia.getChildLayoutPosition(v);
                 if(type == VIDEO){
-                    Intent intent = new Intent(MediaActivity.this, MediaVideoActivity.class);
-                    startActivity(intent);
+                    if(media.get(pos).getMediaSrc()==NO_MEDIA_SRC){
+                        showSnack(getString(R.string.s_coming_soon));
+                    }else{
+                        Intent intent = new Intent(MediaActivity.this, MediaVideoActivity.class);
+                        intent.putExtra("srcVideo", media.get(pos).getMediaSrc());
+                        startActivity(intent);
+                    }
+
                 }else{
                     playSong(media.get(pos).getMediaSrc());
                 }
@@ -145,7 +149,7 @@ public class MediaActivity extends BaseAppCompatActivity {
     }
 
     private void showSnack(String message){
-        Snackbar.make(content, message, Snackbar.LENGTH_LONG)
+        Snackbar.make(content, message, Snackbar.LENGTH_SHORT)
                 .setAction("", null)
                 .show();
     }

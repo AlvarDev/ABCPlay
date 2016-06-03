@@ -3,17 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBlackDark"
     tools:context="com.alvardev.android.abcplay.MediaVideoActivity">
-
-    <Button
-        android:id="@+id/btn_tmp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"/>
 
     <VideoView
         android:id="@+id/vvi_video"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/btn_tmp"/>
+        android:layout_centerInParent="true" />
 </RelativeLayout>
