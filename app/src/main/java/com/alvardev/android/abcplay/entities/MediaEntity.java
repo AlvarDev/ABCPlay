@@ -8,6 +8,7 @@ public class MediaEntity extends RealmObject {
     private int type;
     private String name;
     private int ico;
+    private int order;
 
     public MediaEntity() {
     }
@@ -42,5 +43,13 @@ public class MediaEntity extends RealmObject {
 
     public void setIco(int ico) {
         this.ico = ico;
+    }
+
+    public int getOrder() {
+        return order;
+    }
+
+    public void setOrder(int order) {
+        this.order = order;
     }
 }

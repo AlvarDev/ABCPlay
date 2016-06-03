@@ -7,6 +7,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,9 +20,11 @@ import butterknife.InjectView;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
+import io.realm.Sort;
 
 public class MediaActivity extends BaseAppCompatActivity {
 
+    private static final String TAG = "MediaActivity";
     @InjectView(R.id.iv_exit) ImageView ivExit;
     @InjectView(R.id.tv_no_results) TextView tvNoResults;
     @InjectView(R.id.rv_media) RecyclerView rvMedia;
@@ -55,6 +58,12 @@ public class MediaActivity extends BaseAppCompatActivity {
         RealmConfiguration realmConfig = new RealmConfiguration.Builder(this).build();
         Realm realm = Realm.getInstance(realmConfig);
         media = realm.where(MediaEntity.class).equalTo("type", type).findAll();
+        media.sort("order", Sort.ASCENDING);
+
+        Log.i(TAG,"type: "+type);
+        for(MediaEntity med :  media){
+            Log.i(TAG, "["+med.getName()+"]");
+        }
 
         if (media.size() > 0) {
             setRecyclerView();
