@@ -3,6 +3,7 @@ package com.alvardev.android.abcplay;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.alvardev.android.abcplay.entities.MediaEntity;
 
@@ -15,6 +16,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
     protected static final String NAME_PREFERENCE = "com.alvardev.android.abcplay.preferences";
     protected static final int VIDEO = 0;
     protected static final int AUDIO = 1;
+    private static final String TAG = "BaseAppCompatAct";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,42 +56,42 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         MediaEntity boy = new MediaEntity();
         MediaEntity tree = new MediaEntity();
 
-        colors.setName("Colors");
+        colors.setName("colors");
         colors.setIco(R.drawable.img_colors_video);
         colors.setPath("");
         colors.setType(VIDEO);
         colors.setOrder(1);
         colors.setMediaSrc(R.raw.video_red);
 
-        shapes.setName("Shapes");
+        shapes.setName("shapes");
         shapes.setIco(R.drawable.img_shapes_video);
         shapes.setPath("");
         shapes.setType(VIDEO);
         shapes.setOrder(2);
         shapes.setMediaSrc(R.raw.video_red);
 
-        vowels.setName("Vowels");
+        vowels.setName("vowels");
         vowels.setIco(R.drawable.img_vowels_video);
         vowels.setPath("");
         vowels.setType(VIDEO);
         vowels.setOrder(3);
         vowels.setMediaSrc(R.raw.video_red);
 
-        family.setName("Family");
+        family.setName("family");
         family.setIco(R.drawable.img_family_video);
         family.setPath("");
         family.setType(VIDEO);
         family.setOrder(4);
         family.setMediaSrc(R.raw.video_red);
 
-        fruits.setName("Fruits");
+        fruits.setName("fruits");
         fruits.setIco(R.drawable.img_fruits_video);
         fruits.setPath("");
         fruits.setType(VIDEO);
         fruits.setOrder(5);
         fruits.setMediaSrc(R.raw.video_red);
 
-        animal.setName("Animal");
+        animal.setName("animal");
         animal.setIco(R.drawable.img_animals_video);
         animal.setPath("");
         animal.setType(VIDEO);
@@ -99,84 +101,84 @@ public class BaseAppCompatActivity extends AppCompatActivity {
 
 
 
-        car.setName("Car");
+        car.setName("car");
         car.setIco(R.drawable.img_car_audio);
         car.setPath("");
         car.setType(AUDIO);
         car.setOrder(1);
         car.setMediaSrc(R.raw.song_car);
 
-        scissors.setName("Scissors");
+        scissors.setName("scissors");
         scissors.setIco(R.drawable.img_scissors_audio);
         scissors.setPath("");
         scissors.setType(AUDIO);
         scissors.setOrder(2);
         scissors.setMediaSrc(R.raw.song_scissors);
 
-        circle.setName("Circle");
+        circle.setName("circle");
         circle.setIco(R.drawable.img_circle_audio);
         circle.setPath("");
         circle.setType(AUDIO);
         circle.setOrder(3);
         circle.setMediaSrc(R.raw.song_circle);
 
-        start.setName("Start");
+        start.setName("start");
         start.setIco(R.drawable.img_star_audio);
         start.setPath("");
         start.setType(AUDIO);
         start.setOrder(4);
         start.setMediaSrc(R.raw.song_start);
 
-        girl.setName("Girl");
+        girl.setName("girl");
         girl.setIco(R.drawable.img_girl_audio);
         girl.setPath("");
         girl.setType(AUDIO);
         girl.setOrder(5);
         girl.setMediaSrc(R.raw.song_girl);
 
-        eye.setName("Eye");
+        eye.setName("eye");
         eye.setIco(R.drawable.img_eye_audio);
         eye.setPath("");
         eye.setType(AUDIO);
         eye.setOrder(6);
         eye.setMediaSrc(R.raw.song_eye);
 
-        ball.setName("Ball");
+        ball.setName("ball");
         ball.setIco(R.drawable.img_ball_audio);
         ball.setPath("");
         ball.setType(AUDIO);
         ball.setOrder(7);
         ball.setMediaSrc(R.raw.song_ball);
 
-        cube.setName("Cube");
+        cube.setName("cube");
         cube.setIco(R.drawable.img_cube_audio);
         cube.setPath("");
         cube.setType(AUDIO);
         cube.setOrder(8);
         cube.setMediaSrc(R.raw.song_cube);
 
-        pig.setName("Pig");
+        pig.setName("pig");
         pig.setIco(R.drawable.img_pig_audio);
         pig.setPath("");
         pig.setType(AUDIO);
         pig.setOrder(9);
         pig.setMediaSrc(R.raw.song_pig);
 
-        bicycle.setName("Bicycle");
+        bicycle.setName("bicycle");
         bicycle.setIco(R.drawable.img_bicycle_audio);
         bicycle.setPath("");
         bicycle.setType(AUDIO);
         bicycle.setOrder(10);
         bicycle.setMediaSrc(R.raw.song_bicycle);
 
-        boy.setName("Boy");
+        boy.setName("boy");
         boy.setIco(R.drawable.img_boy_audio);
         boy.setPath("");
         boy.setType(AUDIO);
         boy.setOrder(11);
         boy.setMediaSrc(R.raw.song_boy);
 
-        tree.setName("Tree");
+        tree.setName("tree");
         tree.setIco(R.drawable.img_tree_audio);
         tree.setPath("");
         tree.setType(AUDIO);
@@ -202,6 +204,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         saveObject(bicycle);
         saveObject(boy);
         saveObject(tree);
+        Log.i(TAG, "Default Data done");
     }
 
     private void saveObject(RealmObject object) {

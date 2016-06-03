@@ -1,5 +1,6 @@
 package com.alvardev.android.abcplay.adapters;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 
 import com.alvardev.android.abcplay.R;
 import com.alvardev.android.abcplay.entities.MediaEntity;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -16,9 +18,11 @@ public class MediaAdapter extends RecyclerView.Adapter<MediaAdapter.ViewHolder>
 
     private List<MediaEntity> mData;
     private View.OnClickListener listener;
+    private Context context;
 
-    public MediaAdapter(List<MediaEntity> myData) {
+    public MediaAdapter(List<MediaEntity> myData, Context context) {
         this.mData = myData;
+        this.context = context;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -41,7 +45,10 @@ public class MediaAdapter extends RecyclerView.Adapter<MediaAdapter.ViewHolder>
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.ivIcoMedia.setImageResource(mData.get(position).getIco());
+        Picasso.with(this.context).load(mData.get(position).getIco())
+                .placeholder(R.drawable.img_logo_main)
+                .error(R.drawable.img_logo_main)
+                .into(holder.ivIcoMedia);
     }
 
     @Override
@@ -58,5 +65,7 @@ public class MediaAdapter extends RecyclerView.Adapter<MediaAdapter.ViewHolder>
         if(listener != null)
             listener.onClick(v);
     }
+
+
 
 }

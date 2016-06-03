@@ -9,7 +9,9 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,12 +29,16 @@ public class MediaActivity extends BaseAppCompatActivity {
 
     private static final String TAG = "MediaActivity";
     @InjectView(R.id.iv_exit) ImageView ivExit;
+    @InjectView(R.id.iv_logo) ImageView ivLogo;
+    @InjectView(R.id.et_search) EditText etSearch;
+    @InjectView(R.id.iv_search) ImageView ivSearch;
     @InjectView(R.id.tv_no_results) TextView tvNoResults;
     @InjectView(R.id.rv_media) RecyclerView rvMedia;
     @InjectView(R.id.content) View content;
     //@InjectView(R.id.progress_bar) View progressBar;
 
     private RealmResults<MediaEntity> media;
+    private MediaAdapter mAdapter;
     private int type;
 
     @Override
@@ -42,8 +48,13 @@ public class MediaActivity extends BaseAppCompatActivity {
         ButterKnife.inject(this);
 
         type = getIntent().getIntExtra("type", VIDEO);
+        setLogo();
         setActions();
         getMedia();
+    }
+
+    private void setLogo(){
+        ivLogo.setImageResource(type == VIDEO ? R.drawable.img_logo_singing : R.drawable.img_logo_learning);
     }
 
     private void setActions(){
@@ -51,6 +62,13 @@ public class MediaActivity extends BaseAppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        ivSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String query = etSearch.getText().toString();
+                search(query);
             }
         });
     }
@@ -72,6 +90,26 @@ public class MediaActivity extends BaseAppCompatActivity {
 
     }
 
+    private void search(String query){
+        RealmConfiguration realmConfig = new RealmConfiguration.Builder(this).build();
+        Realm realm = Realm.getInstance(realmConfig);
+
+        if(query.isEmpty()){
+            media = realm.where(MediaEntity.class)
+                    .equalTo("type", type)
+                    .findAll();
+        }else {
+            media = realm.where(MediaEntity.class)
+                    .equalTo("type", type)
+                    .contains("name", query)
+                    .findAll();
+        }
+
+        media.sort("order", Sort.ASCENDING);
+        setRecyclerView();
+
+    }
+
     private void setRecyclerView(){
         rvMedia.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager =
@@ -80,7 +118,7 @@ public class MediaActivity extends BaseAppCompatActivity {
                         new GridLayoutManager(this,2);
         rvMedia.setLayoutManager(mLayoutManager);
 
-        MediaAdapter mAdapter = new MediaAdapter(media);
+        mAdapter = new MediaAdapter(media, MediaActivity.this);
         rvMedia.setAdapter(mAdapter);
         rvMedia.setItemAnimator(new DefaultItemAnimator());
         rvMedia.setVisibility(View.VISIBLE);
