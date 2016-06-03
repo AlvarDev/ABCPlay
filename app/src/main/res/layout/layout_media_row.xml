@@ -9,7 +9,8 @@
         android:id="@+id/iv_ico_media"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:src="@drawable/tmp_audio"
+        android:src="@drawable/img_car_audio"
+        android:padding="8dp"
         android:contentDescription="@string/app_name"/>
 
 </LinearLayout>

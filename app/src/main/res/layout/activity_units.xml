@@ -44,7 +44,8 @@
                     android:layout_height="100dp"
                     android:layout_weight="1"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/tmp_colors" />
+                    android:padding="8dp"
+                    android:src="@drawable/img_colors" />
 
                 <ImageView
                     android:id="@+id/iv_shapes"
@@ -52,7 +53,8 @@
                     android:layout_height="100dp"
                     android:layout_weight="1"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/tmp_colors" />
+                    android:padding="8dp"
+                    android:src="@drawable/img_shapes" />
 
             </LinearLayout>
 
@@ -67,7 +69,8 @@
                     android:layout_height="100dp"
                     android:layout_weight="1"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/tmp_colors" />
+                    android:padding="8dp"
+                    android:src="@drawable/img_vowels" />
 
                 <ImageView
                     android:id="@+id/iv_family"
@@ -75,7 +78,8 @@
                     android:layout_height="100dp"
                     android:layout_weight="1"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/tmp_colors" />
+                    android:padding="8dp"
+                    android:src="@drawable/img_family" />
 
             </LinearLayout>
 
@@ -90,7 +94,8 @@
                     android:layout_height="100dp"
                     android:layout_weight="1"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/tmp_colors" />
+                    android:padding="8dp"
+                    android:src="@drawable/img_fruits" />
 
                 <ImageView
                     android:id="@+id/iv_animals"
@@ -98,7 +103,8 @@
                     android:layout_height="100dp"
                     android:layout_weight="1"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/tmp_colors" />
+                    android:padding="8dp"
+                    android:src="@drawable/img_animals" />
 
             </LinearLayout>
 

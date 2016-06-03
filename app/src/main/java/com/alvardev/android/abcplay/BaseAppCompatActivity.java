@@ -88,62 +88,62 @@ public class BaseAppCompatActivity extends AppCompatActivity {
 
 
         car.setName("Car");
-        car.setIco(R.drawable.tmp_audio);
+        car.setIco(R.drawable.img_car_audio);
         car.setPath("");
         car.setType(AUDIO);
 
         scissors.setName("Scissors");
-        scissors.setIco(R.drawable.tmp_audio);
+        scissors.setIco(R.drawable.img_car_audio);
         scissors.setPath("");
         scissors.setType(AUDIO);
 
         circle.setName("Circle");
-        circle.setIco(R.drawable.tmp_audio);
+        circle.setIco(R.drawable.img_circle_audio);
         circle.setPath("");
         circle.setType(AUDIO);
 
         start.setName("Start");
-        start.setIco(R.drawable.tmp_audio);
+        start.setIco(R.drawable.img_star_audio);
         start.setPath("");
         start.setType(AUDIO);
 
         girl.setName("Girl");
-        girl.setIco(R.drawable.tmp_audio);
+        girl.setIco(R.drawable.img_girl_audio);
         girl.setPath("");
         girl.setType(AUDIO);
 
         eye.setName("Eye");
-        eye.setIco(R.drawable.tmp_audio);
+        eye.setIco(R.drawable.img_eye_audio);
         eye.setPath("");
         eye.setType(AUDIO);
 
         ball.setName("Ball");
-        ball.setIco(R.drawable.tmp_audio);
+        ball.setIco(R.drawable.img_ball_audio);
         ball.setPath("");
         ball.setType(AUDIO);
 
         cube.setName("Cube");
-        cube.setIco(R.drawable.tmp_audio);
+        cube.setIco(R.drawable.img_cube_audio);
         cube.setPath("");
         cube.setType(AUDIO);
 
         pig.setName("Pig");
-        pig.setIco(R.drawable.tmp_audio);
+        pig.setIco(R.drawable.img_car_audio);
         pig.setPath("");
         pig.setType(AUDIO);
 
         bicycle.setName("Bicycle");
-        bicycle.setIco(R.drawable.tmp_audio);
+        bicycle.setIco(R.drawable.img_bicycle_audio);
         bicycle.setPath("");
         bicycle.setType(AUDIO);
 
         boy.setName("Boy");
-        boy.setIco(R.drawable.tmp_audio);
+        boy.setIco(R.drawable.img_boy_audio);
         boy.setPath("");
         boy.setType(AUDIO);
 
         tree.setName("Tree");
-        tree.setIco(R.drawable.tmp_audio);
+        tree.setIco(R.drawable.img_tree_audio);
         tree.setPath("");
         tree.setType(AUDIO);
 
