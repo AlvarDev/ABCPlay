@@ -1,6 +1,8 @@
 package com.alvardev.android.abcplay;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -25,6 +27,7 @@ public class UnitsActivity extends BaseAppCompatActivity {
         ButterKnife.inject(this);
 
         setActions();
+        savePreference("letter",0);
     }
 
     private void setActions(){
@@ -83,6 +86,13 @@ public class UnitsActivity extends BaseAppCompatActivity {
         intent.putExtra("mediaPath", mediaPath);
         intent.putExtra("letter","a");
         startActivity(intent);
+    }
+
+    public void savePreference(String key, int valor) {
+        SharedPreferences preferences = getSharedPreferences("com.alvardev.android.abcplay", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt(key, valor);
+        editor.apply();
     }
 
 }
