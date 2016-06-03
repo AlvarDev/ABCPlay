@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/AlvarDev/Repos/ABCPlay/base/src/main/assets"/><source path="/Users/AlvarDev/Repos/ABCPlay/base/build/generated/assets/shaders/release"/></dataSet><dataSet config="release"><source path="/Users/AlvarDev/Repos/ABCPlay/base/src/release/assets"/></dataSet></merger>
