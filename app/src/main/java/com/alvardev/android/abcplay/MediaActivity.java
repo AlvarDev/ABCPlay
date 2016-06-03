@@ -1,6 +1,7 @@
 package com.alvardev.android.abcplay;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -86,16 +87,23 @@ public class MediaActivity extends BaseAppCompatActivity {
         mAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                int pos = rvMedia.getChildLayoutPosition(v);
                 if(type == VIDEO){
                     Intent intent = new Intent(MediaActivity.this, MediaVideoActivity.class);
                     startActivity(intent);
                 }else{
-                    showSnack(getString(R.string.s_tmp_audio));
+                    playSong(media.get(pos).getMediaSrc());
                 }
             }
         });
 
         tvNoResults.setVisibility(View.GONE);
+    }
+
+    private void playSong(int src){
+        MediaPlayer mediaPlayer = MediaPlayer.create(MediaActivity.this, src);
+        mediaPlayer.start(); // no need to call prepare(); create() does that for you
     }
 
     private void showSnack(String message){

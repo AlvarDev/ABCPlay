@@ -5,6 +5,7 @@ import io.realm.RealmObject;
 public class MediaEntity extends RealmObject {
 
     private String path;
+    private int mediaSrc;
     private int type;
     private String name;
     private int ico;
@@ -51,5 +52,13 @@ public class MediaEntity extends RealmObject {
 
     public void setOrder(int order) {
         this.order = order;
+    }
+
+    public int getMediaSrc() {
+        return mediaSrc;
+    }
+
+    public void setMediaSrc(int mediaSrc) {
+        this.mediaSrc = mediaSrc;
     }
 }
