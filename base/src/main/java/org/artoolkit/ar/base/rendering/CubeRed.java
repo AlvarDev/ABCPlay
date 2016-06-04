@@ -37,31 +37,31 @@
 
 package org.artoolkit.ar.base.rendering;
 
+import android.opengl.GLES10;
+
 import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import android.opengl.GLES10;
-
 /**
  * Simple class to render a coloured cube.
  */
-public class Cube {
-    
+public class CubeRed {
+
 	private FloatBuffer	mVertexBuffer;
     private FloatBuffer	mColorBuffer;
     private ByteBuffer	mIndexBuffer;
-    
-    public Cube() {
+
+    public CubeRed() {
     	this(1.0f);
     }
-    
-	public Cube(float size) {
+
+	public CubeRed(float size) {
 		this(size, 0.0f, 0.0f, 0.0f);
 	}
-	
-	public Cube(float size, float x, float y, float z) {
+
+	public CubeRed(float size, float x, float y, float z) {
 		setArrays(size, x, y, z);
 	}
 	

@@ -37,31 +37,31 @@
 
 package org.artoolkit.ar.base.rendering;
 
+import android.opengl.GLES10;
+
 import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import android.opengl.GLES10;
-
 /**
  * Simple class to render a coloured cube.
  */
-public class Cube {
-    
+public class CubeGreen {
+
 	private FloatBuffer	mVertexBuffer;
     private FloatBuffer	mColorBuffer;
     private ByteBuffer	mIndexBuffer;
-    
-    public Cube() {
+
+    public CubeGreen() {
     	this(1.0f);
     }
-    
-	public Cube(float size) {
+
+	public CubeGreen(float size) {
 		this(size, 0.0f, 0.0f, 0.0f);
 	}
-	
-	public Cube(float size, float x, float y, float z) {
+
+	public CubeGreen(float size, float x, float y, float z) {
 		setArrays(size, x, y, z);
 	}
 	
@@ -81,15 +81,15 @@ public class Cube {
 		};
 
 		float c = 1.0f;
-		float colors[] = { 
-			c, 0, 0, c, // 0 black
-			c, 0, 0, c, // 1 red
-			c, 0, 0, c, // 2 yellow
-			c, 0, 0, c, // 3 green
-			c, 0, 0, c, // 4 blue
-			c, 0, 0, c, // 5 magenta
-			c, 0, 0, c, // 6 white
-			c, 0, 0, c, // 7 cyan
+		float colors[] = {
+			0, c, 0, c, // 0 black
+			0, c, 0, c, // 1 red
+			0, c, 0, c, // 2 yellow
+			0, c, 0, c, // 3 green
+			0, c, 0, c, // 4 blue
+			0, c, 0, c, // 5 magenta
+			0, c, 0, c, // 6 white
+			0, c, 0, c, // 7 cyan
 		};
 
 		byte indices[] = { 

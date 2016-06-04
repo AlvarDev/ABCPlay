@@ -3,11 +3,11 @@ package com.alvardev.android.abcplay;
 import android.Manifest;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -22,10 +22,7 @@ import org.artoolkit.ar.base.rendering.ARRenderer;
 public class EnhancementRealityActivity extends ARActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_CAMERA = 133;
-    private FrameLayout mainLayout;
-    private String letter;
 
-    private SimpleRenderer simpleRenderer = new SimpleRenderer(EnhancementRealityActivity.this);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,8 +32,7 @@ public class EnhancementRealityActivity extends ARActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_enhancement_reality);
 
-        mainLayout = (FrameLayout)this.findViewById(R.id.mainLayout);
-        letter = getIntent().getStringExtra("letter");
+        FrameLayout mainLayout = (FrameLayout)this.findViewById(R.id.mainLayout);
 
         if (!checkCameraPermission()) {
             //if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) { //ASK EVERY TIME - it's essential!
@@ -48,15 +44,37 @@ public class EnhancementRealityActivity extends ARActivity {
         // When the screen is tapped, inform the renderer and vibrate the phone
         mainLayout.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                Log.i("Render", "Letter: "+getPreference("letter"));
-                //simpleRenderer.click();
+                getSound(getPreference("letter"));
                 Vibrator vib = (Vibrator) getSystemService(VIBRATOR_SERVICE);
                 vib.vibrate(40);
             }
 
         });
 
+    }
+
+    private void getSound(int letter){
+
+        switch (letter){
+            case 1:
+                playSong(R.raw.sound_red);
+                break;
+            case 2:
+                playSong(R.raw.sound_blue);
+                break;
+            case 3:
+                playSong(R.raw.sound_yellow);
+                break;
+            case 4:
+                playSong(R.raw.sound_green);
+                break;
+            case 5:
+                playSong(R.raw.sound_pink);
+                break;
+            case 6:
+                playSong(R.raw.sound_white);
+                break;
+        }
     }
 
     @Override
@@ -91,8 +109,13 @@ public class EnhancementRealityActivity extends ARActivity {
     }
 
     public int getPreference(String key) {
-        SharedPreferences preferencias = this.getSharedPreferences("com.alvardev.android.abcplay", MODE_PRIVATE);
-        return preferencias.getInt(key, 0);
+        SharedPreferences preferences = this.getSharedPreferences("com.alvardev.android.abcplay", MODE_PRIVATE);
+        return preferences.getInt(key, 0);
+    }
+
+    private void playSong(int src){
+        MediaPlayer mediaPlayer = MediaPlayer.create(EnhancementRealityActivity.this, src);
+        mediaPlayer.start(); // no need to call prepare(); create() does that for you
     }
 
 }
