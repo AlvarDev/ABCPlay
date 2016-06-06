@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:scrollbars="none">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -53,7 +52,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/s_group"
-                    android:inputType="textPersonName" />
+                    android:inputType="number"
+                    android:maxLength="2" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -66,7 +66,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/s_single"
-                    android:inputType="textPersonName" />
+                    android:inputType="number"
+                    android:maxLength="2" />
             </android.support.design.widget.TextInputLayout>
 
         </LinearLayout>
@@ -95,7 +96,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/s_group"
-                    android:inputType="textPersonName" />
+                    android:inputType="number"
+                    android:maxLength="2" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -108,7 +110,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/s_single"
-                    android:inputType="textPersonName" />
+                    android:inputType="number"
+                    android:maxLength="2" />
             </android.support.design.widget.TextInputLayout>
 
         </LinearLayout>
@@ -137,7 +140,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/s_group"
-                    android:inputType="textPersonName" />
+                    android:inputType="number"
+                    android:maxLength="2" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -150,19 +154,49 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/s_single"
-                    android:inputType="textPersonName" />
+                    android:inputType="number"
+                    android:maxLength="2" />
             </android.support.design.widget.TextInputLayout>
 
         </LinearLayout>
+
+        <!-- Gender -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/s_gender"
+            android:textStyle="bold" />
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_male"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="@string/s_male" />
+
+            <RadioButton
+                android:id="@+id/rb_female"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/s_female" />
+        </RadioGroup>
 
         <Button
             android:id="@+id/bt_save_student"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/s_save"
+            android:layout_margin="16dp"
             android:background="@color/colorAccent"
-            android:textColor="@color/colorWhite"
-            android:layout_margin="16dp"/>
+            android:text="@string/s_save"
+            android:textColor="@color/colorWhite" />
 
     </LinearLayout>
 </ScrollView>

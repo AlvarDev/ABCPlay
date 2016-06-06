@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.alvardev.android.abcplay.adapters.StudentAdapter;
 import com.alvardev.android.abcplay.entities.UserEntity;
 import com.alvardev.android.abcplay.utils.CustomDialog;
+import com.alvardev.android.abcplay.utils.CustomDialog.*;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -21,7 +22,7 @@ import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
 
-public class MonitoringActivity extends BaseAppCompatActivity {
+public class MonitoringActivity extends BaseAppCompatActivity implements ManagerStudentListener {
 
     @InjectView(R.id.iv_exit) ImageView ivExit;
     @InjectView(R.id.et_search) EditText etSearch;
@@ -162,11 +163,12 @@ public class MonitoringActivity extends BaseAppCompatActivity {
             }else{
                 letter = "--";
             }
-
             students.get(i).setFinalScore("Nota Final: "+finalScore+" - "+letter);
-
         }
-
     }
 
+    @Override
+    public void onNewSearch(String query) {
+        search(query);
+    }
 }
