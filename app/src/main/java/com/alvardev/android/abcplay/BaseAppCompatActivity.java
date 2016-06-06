@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.alvardev.android.abcplay.entities.MediaEntity;
+import com.alvardev.android.abcplay.entities.UserEntity;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -17,6 +18,9 @@ public class BaseAppCompatActivity extends AppCompatActivity {
     protected static final int VIDEO = 0;
     protected static final int AUDIO = 1;
     protected static final int NO_MEDIA_SRC = 3;
+    protected static final int GENERAL = 0;
+    protected static final int STUDENT = 1;
+    protected static final int TEACHER = 2;
     private static final String TAG = "BaseAppCompatAct";
 
     @Override
@@ -205,6 +209,129 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         saveObject(bicycle);
         saveObject(boy);
         saveObject(tree);
+
+
+
+        UserEntity teacherdino = new UserEntity();
+        UserEntity teacherdino1 = new UserEntity();
+
+        UserEntity student1 = new UserEntity();
+        UserEntity student2 = new UserEntity();
+        UserEntity student3 = new UserEntity();
+        UserEntity student4 = new UserEntity();
+        UserEntity student5 = new UserEntity();
+        UserEntity student6 = new UserEntity();
+        UserEntity student7 = new UserEntity();
+        UserEntity student8 = new UserEntity();
+        UserEntity student9 = new UserEntity();
+        UserEntity student0 = new UserEntity();
+
+        teacherdino.setIdUser(10);
+        teacherdino.setName("Teacher Dino");
+        teacherdino.setUser("TEACHERDINO");
+        teacherdino.setPassword("usmp");
+        teacherdino.setType(TEACHER);
+
+        teacherdino1.setIdUser(11);
+        teacherdino1.setName("Teacher Dino 1");
+        teacherdino1.setUser("TEACHERDINO1");
+        teacherdino1.setPassword("usmp");
+        teacherdino1.setType(TEACHER);
+
+        student0.setIdUser(0);
+        student0.setName("Jenner Andre Orozco Angeles");
+        student0.setNameSearch(student0.getName().toLowerCase());
+        student0.setUser("DINO");
+        student0.setPassword("usmp");
+        student0.setType(STUDENT);
+        //student0.setMale(true);
+
+        student1.setIdUser(1);
+        student1.setName("Mia Jazmin Catos Perez");
+        student1.setNameSearch(student1.getName().toLowerCase());
+        student1.setUser("--");
+        student1.setPassword("--");
+        student1.setType(STUDENT);
+        //student1.setMale(false);
+
+        student2.setIdUser(2);
+        student2.setName("Angel Fabrizio Salinas Casquino");
+        student2.setNameSearch(student2.getName().toLowerCase());
+        student2.setUser("--");
+        student2.setPassword("--");
+        student2.setType(STUDENT);
+        //student2.setMale(true);
+
+        student3.setIdUser(3);
+        student3.setName("Aaron Stefano Soto Bueno");
+        student3.setNameSearch(student3.getName().toLowerCase());
+        student3.setUser("--");
+        student3.setPassword("--");
+        student3.setType(STUDENT);
+        //student3.setMale(true);
+
+        student4.setIdUser(4);
+        student4.setName("Briana Sanchez Paz");
+        student4.setNameSearch(student4.getName().toLowerCase());
+        student4.setUser("--");
+        student4.setPassword("--");
+        student4.setType(STUDENT);
+        //student4.setMale(false);
+
+        student5.setIdUser(5);
+        student5.setName("Makeyla Solis Castro");
+        student5.setNameSearch(student5.getName().toLowerCase());
+        student5.setUser("--");
+        student5.setPassword("--");
+        student5.setType(STUDENT);
+        //student5.setMale(false);
+
+        student6.setIdUser(6);
+        student6.setName("Juan David Romero Chacaltana");
+        student6.setNameSearch(student6.getName().toLowerCase());
+        student6.setUser("--");
+        student6.setPassword("--");
+        student6.setType(STUDENT);
+        //student6.setMale(true);
+
+        student7.setIdUser(7);
+        student7.setName("Georgia Romero Chacaltana");
+        student7.setNameSearch(student7.getName().toLowerCase());
+        student7.setUser("--");
+        student7.setPassword("--");
+        student7.setType(STUDENT);
+        //student7.setMale(false);
+
+        student8.setIdUser(8);
+        student8.setName("Kristel Huachin Lopez");
+        student8.setNameSearch(student8.getName().toLowerCase());
+        student8.setUser("--");
+        student8.setPassword("--");
+        student8.setType(STUDENT);
+        //student8.setMale(false);
+
+        student9.setIdUser(9);
+        student9.setName("Vannia Advincula Banda");
+        student9.setNameSearch(student9.getName().toLowerCase());
+        student9.setUser("--");
+        student9.setPassword("--");
+        student9.setType(STUDENT);
+        //student9.setMale(false);
+
+        saveObject(teacherdino);
+        saveObject(teacherdino1);
+
+        saveObject(student0);
+        saveObject(student1);
+        saveObject(student2);
+        saveObject(student3);
+        saveObject(student4);
+        saveObject(student5);
+        saveObject(student6);
+        saveObject(student7);
+        saveObject(student8);
+        saveObject(student9);
+
         Log.i(TAG, "Default Data done");
     }
 

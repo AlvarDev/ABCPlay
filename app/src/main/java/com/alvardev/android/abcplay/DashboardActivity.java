@@ -14,6 +14,7 @@ public class DashboardActivity extends BaseAppCompatActivity {
     @InjectView(R.id.iv_playing) ImageView ivPlaying;
     @InjectView(R.id.iv_singing) ImageView ivSinging;
     @InjectView(R.id.iv_learning) ImageView ivLearning;
+    @InjectView(R.id.iv_monitoring) ImageView ivMonitoring;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +22,16 @@ public class DashboardActivity extends BaseAppCompatActivity {
         setContentView(R.layout.activity_dashboard);
         ButterKnife.inject(this);
 
+        int userType = getIntent().getIntExtra("userType", STUDENT);
+        setUI(userType);
         setActions();
+    }
+
+    private void setUI(int userType){
+        ivPlaying.setVisibility(userType == TEACHER ? View.GONE : View.VISIBLE);
+        ivSinging.setVisibility(userType == TEACHER ? View.GONE : View.VISIBLE);
+        ivLearning.setVisibility(userType == TEACHER ? View.GONE : View.VISIBLE);
+        ivMonitoring.setVisibility(userType == TEACHER ? View.VISIBLE : View.GONE);
     }
 
     private void setActions(){
@@ -50,6 +60,14 @@ public class DashboardActivity extends BaseAppCompatActivity {
             @Override
             public void onClick(View v) {
                 goTo(MediaActivity.class, AUDIO);
+            }
+        });
+
+        ivMonitoring.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashboardActivity.this, MonitoringActivity.class);
+                startActivity(intent);
             }
         });
     }

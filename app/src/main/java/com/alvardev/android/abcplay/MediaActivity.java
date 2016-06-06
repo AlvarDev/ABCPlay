@@ -84,6 +84,8 @@ public class MediaActivity extends BaseAppCompatActivity {
 
         if (media.size() > 0) {
             setRecyclerView();
+        }else{
+            tvNoResults.setVisibility(View.VISIBLE);
         }
 
     }
@@ -104,7 +106,12 @@ public class MediaActivity extends BaseAppCompatActivity {
         }
 
         media.sort("order", Sort.ASCENDING);
-        setRecyclerView();
+
+        if (media.size() > 0) {
+            setRecyclerView();
+        }else{
+            tvNoResults.setVisibility(View.VISIBLE);
+        }
 
     }
 
