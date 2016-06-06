@@ -1,5 +1,7 @@
 package com.alvardev.android.abcplay;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -335,6 +337,8 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         saveObject(student8);
         saveObject(student9);
 
+        saveLastIdStudent(11);
+
         Log.i(TAG, "Default Data done");
     }
 
@@ -344,6 +348,13 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         realm.beginTransaction();
         realm.copyToRealm(object);
         realm.commitTransaction();
+    }
+
+    private void saveLastIdStudent(int lastIdStudent) {
+        SharedPreferences preferences = getSharedPreferences(NAME_PREFERENCE, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt("lastIdStudent", lastIdStudent);
+        editor.apply();
     }
 
 }

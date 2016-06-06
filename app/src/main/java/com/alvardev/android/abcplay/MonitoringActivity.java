@@ -85,6 +85,7 @@ public class MonitoringActivity extends BaseAppCompatActivity implements Manager
             setRecyclerView();
         }else{
             tvNoResults.setVisibility(View.VISIBLE);
+            rvStudents.setVisibility(View.GONE);
         }
     }
 
@@ -113,6 +114,7 @@ public class MonitoringActivity extends BaseAppCompatActivity implements Manager
         });
 
         tvNoResults.setVisibility(View.GONE);
+        rvStudents.setVisibility(View.VISIBLE);
     }
 
     private void search(String query){
@@ -138,6 +140,7 @@ public class MonitoringActivity extends BaseAppCompatActivity implements Manager
             setRecyclerView();
         }else{
             tvNoResults.setVisibility(View.VISIBLE);
+            rvStudents.setVisibility(View.GONE);
         }
 
     }

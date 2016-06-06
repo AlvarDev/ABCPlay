@@ -59,7 +59,7 @@
         <activity
             android:name=".MonitoringActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
+            android:windowSoftInputMode="stateHidden|adjustNothing"/>
 
         <activity android:name="org.artoolkit.ar.base.camera.CameraPreferencesActivity" />
 

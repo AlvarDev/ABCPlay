@@ -82,7 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="@string/s_no_results"
+            android:text="@string/s_no_students_found"
             android:visibility="gone" />
 
         <android.support.v7.widget.RecyclerView

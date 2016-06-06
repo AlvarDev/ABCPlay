@@ -86,6 +86,7 @@ public class MediaActivity extends BaseAppCompatActivity {
             setRecyclerView();
         }else{
             tvNoResults.setVisibility(View.VISIBLE);
+            rvMedia.setVisibility(View.GONE);
         }
 
     }
@@ -111,6 +112,7 @@ public class MediaActivity extends BaseAppCompatActivity {
             setRecyclerView();
         }else{
             tvNoResults.setVisibility(View.VISIBLE);
+            rvMedia.setVisibility(View.GONE);
         }
 
     }
@@ -148,6 +150,7 @@ public class MediaActivity extends BaseAppCompatActivity {
         });
 
         tvNoResults.setVisibility(View.GONE);
+        rvMedia.setVisibility(View.VISIBLE);
     }
 
     private void playSong(int src){

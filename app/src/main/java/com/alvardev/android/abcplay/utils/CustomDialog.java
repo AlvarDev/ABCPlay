@@ -50,8 +50,10 @@ public class CustomDialog {
         etShapeSingle.setText(student.getsShapesSingle() == 0 ? null : String.valueOf(student.getsShapesSingle()));
         etVowelGroup.setText(student.getsVowelsGroup() == 0 ? null : String.valueOf(student.getsVowelsGroup()));
         etVowelSingle.setText(student.getsVowelsSingle() == 0 ? null : String.valueOf(student.getsVowelsSingle()));
-        rbMale.setChecked(student.getDino().equals(DINO));
-        rbFemale.setChecked(student.getDino().equals(DINA));
+        if(action == BaseAppCompatActivity.UPDATE_STUDENT){
+            rbMale.setChecked(student.getDino().equals(DINO));
+            rbFemale.setChecked(student.getDino().equals(DINA));
+        }
 
         Button btSaveStudent = (Button) view.findViewById(R.id.bt_save_student);
 
@@ -100,6 +102,7 @@ public class CustomDialog {
                         student.setsShapesSingle(shapeSingle);
                         student.setsVowelsGroup(vowelGroup);
                         student.setsVowelsSingle(vowelSingle);
+                        student.setType(1);
                         student.setDino(rbMale.isChecked() ? DINO : DINA);
 
                         realm.copyToRealmOrUpdate(student);
@@ -132,10 +135,10 @@ public class CustomDialog {
         return preferences.getInt("lastIdStudent", 0)+1;
     }
 
-    private void saveLastIdStudent(int lastIdNotification, Context context) {
+    private void saveLastIdStudent(int lastIdStudent, Context context) {
         SharedPreferences preferences = context.getSharedPreferences(NAME_PREFERENCE, Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putInt("lastIdStudent", lastIdNotification);
+        editor.putInt("lastIdStudent", lastIdStudent);
         editor.apply();
     }
 
