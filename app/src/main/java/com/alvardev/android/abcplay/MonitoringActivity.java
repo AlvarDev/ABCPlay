@@ -1,6 +1,8 @@
 package com.alvardev.android.abcplay;
 
+import android.app.Dialog;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 
 import com.alvardev.android.abcplay.adapters.StudentAdapter;
 import com.alvardev.android.abcplay.entities.UserEntity;
+import com.alvardev.android.abcplay.utils.CustomDialog;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -26,6 +29,7 @@ public class MonitoringActivity extends BaseAppCompatActivity {
     @InjectView(R.id.tv_no_results) TextView tvNoResults;
     @InjectView(R.id.rv_students) RecyclerView rvStudents;
     @InjectView(R.id.content) View content;
+    @InjectView(R.id.fa_add_student) FloatingActionButton faAddStudent;
     //@InjectView(R.id.progress_bar) View progressBar;
 
     private RealmResults<UserEntity> students;
@@ -52,6 +56,17 @@ public class MonitoringActivity extends BaseAppCompatActivity {
             public void onClick(View v) {
                 String query = etSearch.getText().toString();
                 search(query);
+            }
+        });
+
+        faAddStudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dialogOk = new CustomDialog().manageStudent(
+                        MonitoringActivity.this,
+                        new UserEntity(),
+                        ADD_STUDENT);
+                dialogOk.show();
             }
         });
     }
@@ -85,7 +100,13 @@ public class MonitoringActivity extends BaseAppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //int pos = rvStudents.getChildLayoutPosition(v);
+                int pos = rvStudents.getChildLayoutPosition(v);
+                Dialog dialogOk = new CustomDialog().manageStudent(
+                        MonitoringActivity.this,
+                        students.get(pos),
+                        UPDATE_STUDENT);
+
+                dialogOk.show();
 
             }
         });

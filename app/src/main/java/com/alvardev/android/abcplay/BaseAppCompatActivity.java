@@ -18,9 +18,12 @@ public class BaseAppCompatActivity extends AppCompatActivity {
     protected static final int VIDEO = 0;
     protected static final int AUDIO = 1;
     protected static final int NO_MEDIA_SRC = 3;
-    protected static final int GENERAL = 0;
     protected static final int STUDENT = 1;
     protected static final int TEACHER = 2;
+
+    public static final int UPDATE_STUDENT = 0;
+    public static final int ADD_STUDENT = 1;
+
     private static final String TAG = "BaseAppCompatAct";
 
     @Override
@@ -244,7 +247,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         student0.setUser("DINO");
         student0.setPassword("usmp");
         student0.setType(STUDENT);
-        //student0.setMale(true);
+        student0.setDino("https://raw.githubusercontent.com/AlvarDev/ABCPlay/master/app/src/main/res/drawable/img_dino.png");
 
         student1.setIdUser(1);
         student1.setName("Mia Jazmin Catos Perez");
@@ -252,7 +255,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         student1.setUser("--");
         student1.setPassword("--");
         student1.setType(STUDENT);
-        //student1.setMale(false);
+        student1.setDino("https://raw.githubusercontent.com/AlvarDev/ABCPlay/master/app/src/main/res/drawable/img_dina.png");
 
         student2.setIdUser(2);
         student2.setName("Angel Fabrizio Salinas Casquino");
@@ -260,7 +263,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         student2.setUser("--");
         student2.setPassword("--");
         student2.setType(STUDENT);
-        //student2.setMale(true);
+        student2.setDino("https://raw.githubusercontent.com/AlvarDev/ABCPlay/master/app/src/main/res/drawable/img_dino.png");
 
         student3.setIdUser(3);
         student3.setName("Aaron Stefano Soto Bueno");
@@ -268,7 +271,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         student3.setUser("--");
         student3.setPassword("--");
         student3.setType(STUDENT);
-        //student3.setMale(true);
+        student3.setDino("https://raw.githubusercontent.com/AlvarDev/ABCPlay/master/app/src/main/res/drawable/img_dino.png");
 
         student4.setIdUser(4);
         student4.setName("Briana Sanchez Paz");
@@ -276,7 +279,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         student4.setUser("--");
         student4.setPassword("--");
         student4.setType(STUDENT);
-        //student4.setMale(false);
+        student4.setDino("https://raw.githubusercontent.com/AlvarDev/ABCPlay/master/app/src/main/res/drawable/img_dina.png");
 
         student5.setIdUser(5);
         student5.setName("Makeyla Solis Castro");
@@ -284,7 +287,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         student5.setUser("--");
         student5.setPassword("--");
         student5.setType(STUDENT);
-        //student5.setMale(false);
+        student5.setDino("https://raw.githubusercontent.com/AlvarDev/ABCPlay/master/app/src/main/res/drawable/img_dina.png");
 
         student6.setIdUser(6);
         student6.setName("Juan David Romero Chacaltana");
@@ -292,7 +295,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         student6.setUser("--");
         student6.setPassword("--");
         student6.setType(STUDENT);
-        //student6.setMale(true);
+        student6.setDino("https://raw.githubusercontent.com/AlvarDev/ABCPlay/master/app/src/main/res/drawable/img_dino.png");
 
         student7.setIdUser(7);
         student7.setName("Georgia Romero Chacaltana");
@@ -300,7 +303,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         student7.setUser("--");
         student7.setPassword("--");
         student7.setType(STUDENT);
-        //student7.setMale(false);
+        student7.setDino("https://raw.githubusercontent.com/AlvarDev/ABCPlay/master/app/src/main/res/drawable/img_dina.png");
 
         student8.setIdUser(8);
         student8.setName("Kristel Huachin Lopez");
@@ -308,7 +311,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         student8.setUser("--");
         student8.setPassword("--");
         student8.setType(STUDENT);
-        //student8.setMale(false);
+        student8.setDino("https://raw.githubusercontent.com/AlvarDev/ABCPlay/master/app/src/main/res/drawable/img_dina.png");
 
         student9.setIdUser(9);
         student9.setName("Vannia Advincula Banda");
@@ -316,7 +319,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         student9.setUser("--");
         student9.setPassword("--");
         student9.setType(STUDENT);
-        //student9.setMale(false);
+        student9.setDino("https://raw.githubusercontent.com/AlvarDev/ABCPlay/master/app/src/main/res/drawable/img_dina.png");
 
         saveObject(teacherdino);
         saveObject(teacherdino1);

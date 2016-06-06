@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/content"
     android:background="@color/colorWhite"
-    android:padding="16dp"
     tools:context="com.alvardev.android.abcplay.MonitoringActivity">
 
     <LinearLayout
@@ -17,6 +17,9 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="150dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/img_mod_monitoring" />
 
@@ -24,6 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="@string/app_name"
             android:textColor="@color/colorBlack"
@@ -32,13 +37,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
             android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/et_search"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:hint="@string/s_search"
                 android:inputType="text" />
 
@@ -46,12 +53,11 @@
                 android:id="@+id/iv_search"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_search_white_24dp"
                 android:background="@color/colorGreen"
-                android:contentDescription="@string/app_name"/>
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_search_white_24dp" />
 
         </LinearLayout>
-
 
 
     </LinearLayout>
@@ -61,6 +67,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
         android:contentDescription="@string/app_name"
         android:padding="8dp"
         android:src="@drawable/img_exit" />
@@ -68,7 +75,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/lla_tmp">
+        android:layout_below="@+id/lla_tmp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp">
 
         <TextView
             android:id="@+id/tv_no_results"
@@ -90,6 +99,17 @@
             android:visibility="gone" />
 
     </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fa_add_student"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:src="@drawable/ic_add_white_24dp"
+        app:layout_anchor="@+id/appbar" />
 
 
 </RelativeLayout>

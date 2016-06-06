@@ -15,8 +15,13 @@
     <string name="s_no_user_found">"No se encontraron usuarios"</string>
     <string name="s_no_media_found">"No se encontraron coincidencias"</string>
     <string name="s_no_students_found">"No se encontraron alumnos"</string>
+    <string name="s_name">Nombre alumno</string>
 
     <string name="s_colors">Colors</string>
     <string name="s_shapes">Shapes</string>
     <string name="s_vowels">Vowels</string>
+
+    <string name="s_save">Guardar</string>
+    <string name="s_group">Grupal</string>
+    <string name="s_single">Individual</string>
 </resources>

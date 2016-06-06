@@ -62,10 +62,10 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        //Picasso.with(this.context).load(mData.get(position).getDino())
-        //        .placeholder(R.drawable.img_empty)
-        //        .error(R.drawable.img_empty)
-        //        .into(holder.ivIcoMedia);
+        Picasso.with(this.context).load(mData.get(position).getDino())
+                .placeholder(R.drawable.img_empty)
+                .error(R.drawable.img_empty)
+                .into(holder.ivDino);
 
         String colorGrp = "Grupal: " + mData.get(position).getsColorsGroup();
         String colorInd = "Individual: " + mData.get(position).getsColorsSingle();
